@@ -25,7 +25,7 @@ jobs:
 
       - name: Build EXE
         run: |
-          pyinstaller --name "Time Converter" --onefile --clean Time_Converter.py  # Adding --clean option
+          pyinstaller --name "Time Converter" --onefile --clean Time_Converter.py
 
       - name: Upload EXE as artifact
         uses: actions/upload-artifact@v4
