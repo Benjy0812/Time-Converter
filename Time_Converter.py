@@ -13,10 +13,10 @@ def time_convert(conversion_choice, time_value, minutes=0): # Time conversion fu
         return time_value / 60, "minutes" # 1 minute = 60 seconds
     elif conversion_choice == 2:  # minutes to seconds
         return time_value * 60, "seconds" # 1 minute = 60 seconds
-    elif conversion_choice == 3:  # seconds to hours
-        return time_value / 3600, "hours" # 1 hour = 3600 seconds
-    elif conversion_choice == 4:  # hours to seconds
-        return time_value * 3600, "seconds" # 1 hour = 3600 seconds
+    elif conversion_choice == 3:  # minutes to hours
+        return time_value / 60, "hours"  # 1 hour = 60 minutes, so divide by 60
+    elif conversion_choice == 4:  # hours to minutes
+        return time_value * 60, "minutes"  # 1 hour = 60 minutes, so multiply by 60
     elif conversion_choice == 5:  # days to hours
         return time_value * 24, "hours" # 1 day = 24 hours
     elif conversion_choice == 6:  # hours to days
@@ -59,8 +59,8 @@ def main():  # main function
         print("\nChoose an option to convert the time:")
         print("1. Seconds to minutes")
         print("2. Minutes to seconds")
-        print("3. Seconds to hours")
-        print("4. Hours to seconds")
+        print("3. Minutes to hours")
+        print("4. Hours to Minutes")
         print("5. Days to hours")
         print("6. Hours to days")
         print("7. Fractional hours to normal hours and minutes")
@@ -104,7 +104,7 @@ def main():  # main function
             if conversion_choice == 7:  # If it's fractional hours to normal hours and minutes
                 print(f"\nConverted value: {result[0]} hours and {result[1]} minutes")
             else:  # Otherwise, print the converted value with the unit
-                print(f"\nConverted value: {result:.2f} {unit}")
+                print(f"\nConverted value: {result[0]:.2f} {unit}")  # Print the converted value with 2 decimal places
                 input("Press Enter to continue...")
         else:  # invalid
             print("Conversion failed. Please try again.")
