@@ -27,10 +27,10 @@
 1. **Download the Executable**:
    Download the ready-to-use `Time Converter.exe` version of the program from the **Releases** section on the GitHub repository.
 
-3. **Run the Program**:
+2. **Run the Program**:
    After downloading the `Time Converter.exe` file, simply double-click it to run the **Time Converter**. Follow the on-screen prompts to perform time conversions.
 
-4. **Using the Program**:
+3. **Using the Program**:
    Once the program is running, select the desired conversion option, enter the time value, and let the tool handle the rest.
 
 ### Option 2: Run from Source Code
@@ -47,11 +47,11 @@ If you prefer to run the program from the source code, follow these steps:
    - Open a **Command Prompt** or **Terminal** window.
    - Navigate to the directory where you saved `time_converter.py`.
    - Run the program using the following command:
-     ```bash
-     python time_converter.py
-     ```
+
+   ```bash
+   python time_converter.py
+   ```
 
 4. **Using the Program**:
    - The program will prompt you to choose a conversion option (1-8).
    - Enter the time value for the selected conversion, and the result will be displayed.
-  
