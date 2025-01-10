@@ -1,29 +1,16 @@
-# Time Converter
+# Time Converter Python Tool
 
-A simple Python script for converting time between different units (e.g., seconds, minutes, hours, days).
+- A simple Python tool for converting time between different units such as:
+  - Seconds to Minutes
+  - Minutes to Seconds
+  - Seconds to Hours
+  - Hours to Seconds
+  - Days to Hours
+  - Hours to Days
+  - Fractional Hours to Normal Hours & Minutes
+  - Normal Hours & Minutes to Fractional Hours
 
-## Features
-
-- Convert time between various units:
-  - Seconds to minutes
-  - Minutes to seconds
-  - Seconds to hours
-  - Hours to seconds
-  - Days to hours
-  - Hours to days
-- Easy-to-use command-line interface
-
-## Installation
-
-### Prerequisites
-
-- Python 3.x
-
-### How to Run
-
-1. Clone or download this repository.
-2. Navigate to the directory containing the script.
-3. Run the script using Python:
-
-   ```bash
-   python time_converter.py
+- Supports fractional hour conversion and allows easy input of hours and minutes.
+- Includes input validation to handle edge cases like negative, large, and very small values.
+- Features clear error messages for invalid inputs and user guidance.
+- Ideal for time management, programming tasks, and educational purposes.
