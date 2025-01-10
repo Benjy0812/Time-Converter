@@ -11,20 +11,27 @@ def time_convert(conversion_choice, time_value, minutes=0):  # Time conversion f
     """
     if conversion_choice == 1:  # seconds to minutes
         return time_value / 60, "minutes"  # 1 minute = 60 seconds
+
     elif conversion_choice == 2:  # minutes to seconds
         return time_value * 60, "seconds"  # 1 minute = 60 seconds
+
     elif conversion_choice == 3:  # seconds to hours
         return time_value / 3600, "hours"  # 1 hour = 3600 seconds
+
     elif conversion_choice == 4:  # hours to seconds
         return time_value * 3600, "seconds"  # 1 hour = 3600 seconds
+
     elif conversion_choice == 5:  # days to hours
         return time_value * 24, "hours"  # 1 day = 24 hours
+
     elif conversion_choice == 6:  # hours to days
         return time_value / 24, "days"  # 1 day = 24 hours
+
     elif conversion_choice == 7:  # fractional hours to normal hours and minutes
         hours = int(time_value)  # whole hours
         minutes = int((time_value - hours) * 60)  # fractional hours to normal minutes
         return (hours, minutes), "hours and minutes"
+
     elif conversion_choice == 8:  # normal hours and minutes to fractional hours
         fractional_hours = time_value + (minutes / 60)
         return fractional_hours, "fractional hours"
@@ -41,14 +48,18 @@ def get_time_value():  # Helper function to get time value
         time_value = float(
             input("Enter the time value: ").strip()
         )  # get the time value
+
         if time_value < 0:  # negative time value
             print("\nWarning: Negative time value entered. Please ensure it's correct.")
             return None  # return None for negative time value
+
         elif time_value > 1e9:  # very large number
             print("\nWarning: This is a very large number. Please ensure it's correct.")
+
         elif time_value < 1e-10:  # very small number
             print("\nWarning: This is a very small number. Please ensure it's correct.")
         return time_value  # return the valid time value
+
     except ValueError:  # invalid input
         print("\nInvalid input! Please enter a valid number.")
         return None  # return None for invalid input
