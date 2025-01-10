@@ -37,7 +37,7 @@ def get_time_value():  # Helper function to get time value
         float: Valid time value or None if input is invalid.
     """
     try: # get the time value from the user
-        time_value = float(input("Enter the time value: ")) # get the time value
+        time_value = float(input("Enter the time value: ").strip()) # get the time value
         if time_value < 0: # negative time value
             print("\nWarning: Negative time value entered. Please ensure it's correct.")
             return None # return None for negative time value
@@ -68,7 +68,7 @@ def main():  # main function
         print("9. Exit")
 
         try:  # get the conversion choice
-            conversion_choice = int(input("Enter the option number (1-9): "))
+            conversion_choice = int(input("Enter the option number (1-9): ").strip())
         except ValueError:  # invalid input
             print("\nInvalid input! Please enter a valid number between (1-9)")
             input("Press Enter to continue...")
@@ -89,7 +89,7 @@ def main():  # main function
 
         if conversion_choice == 8:  # If it's normal hours and minutes to fractional, get minutes
             try: # get the number of minutes
-                minutes = int(input("Enter the number of minutes (0-59): "))
+                minutes = int(input("Enter the number of minutes (0-59): ").strip())
                 if minutes < 0 or minutes >= 60: # Check if the minutes are valid
                     print("\nInvalid minutes! Please enter a value between 0 and 59.")
                     continue # go back to the start of the loop
@@ -105,7 +105,7 @@ def main():  # main function
                 print(f"\nConverted value: {result[0]} hours and {result[1]} minutes")
             else:  # Otherwise, print the converted value with the unit
                 print(f"\nConverted value: {result:.2f} {unit}")
-            input("Press Enter to continue...")
+                input("Press Enter to continue...")
         else:  # invalid
             print("Conversion failed. Please try again.")
 
