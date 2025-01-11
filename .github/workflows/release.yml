@@ -3,7 +3,7 @@ name: Build and Release Time Converter
 on:
   push:
     tags:
-      - 'v*'  # Trigger release on version tag like v1.0, v1.1, etc.
+      - 'v*'
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'  # Adjust to your Python version
+        python-version: '3.13'
 
     - name: Install dependencies
       run: |
@@ -25,12 +25,12 @@ jobs:
 
     - name: Build executable with PyInstaller
       run: |
-        pyinstaller --onefile Time_Converter.py
+        pyinstaller --name "Time Converter" --onefile Time_Converter.py
         # You can customize the PyInstaller options if needed, like --windowed
 
     - name: Upload release assets to GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: ./dist/Time_Converter*
+        files: ./dist/Time Converter.exe*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
