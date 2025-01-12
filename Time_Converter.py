@@ -1,5 +1,6 @@
 import sys
 
+
 def menu():
     print(
         """
@@ -22,21 +23,20 @@ def getUserChoice():
     while True:
         try:
             choice = int(input("Enter the option number (1-9): ").strip())
-            if choice < 1 or choice > 9:
-                print("Invalid option! Please enter a number between 1 and 9.")
-            else:
+            if 1 <= choice <= 9:
                 return choice
+            else:
+                print("Invalid option! Please enter a number between 1 and 9.")
         except ValueError:
             print("Invalid input! Please enter a valid number.")
 
 
-def getUserInputTime():
+def getUserInputTime(prompt="Enter the time to convert: "):
     while True:
         try:
-            time = float(input("Enter the time to convert: ").strip())
+            time = float(input(prompt).strip())
             if time < 0:
                 print("Warning: Negative number entered. Please ensure it's correct.")
-                continue
             elif time > 1e9:
                 print("Warning: This is a very large number. Please ensure it's correct.")
             elif time < 1e-10:
@@ -46,25 +46,27 @@ def getUserInputTime():
             print("Invalid input! Please enter a valid number.")
 
 
-def convertUserChoice(conversion_choice, user_input_time):
-    if conversion_choice == 1: # Seconds to minutes
+def convertUserChoice(conversion_choice, user_input_time, minutes=0):
+    if conversion_choice == 1:  # Seconds to minutes
         return user_input_time / 60, "minutes"
-    elif conversion_choice == 2: # Minutes to seconds
+    elif conversion_choice == 2:  # Minutes to seconds
         return user_input_time * 60, "seconds"
-    elif conversion_choice == 3: # Seconds to hours
+    elif conversion_choice == 3:  # Seconds to hours
         return user_input_time / 3600, "hours"
-    elif conversion_choice == 4: # Hours to seconds
+    elif conversion_choice == 4:  # Hours to seconds
         return user_input_time * 3600, "seconds"
-    elif conversion_choice == 5: # Days to hours
+    elif conversion_choice == 5:  # Days to hours
         return user_input_time * 24, "hours"
-    elif conversion_choice == 6: # Hours to days
+    elif conversion_choice == 6:  # Hours to days
         return user_input_time / 24, "days"
-    elif conversion_choice == 7: # Fractional hours to normal hours and minutes
+    elif conversion_choice == 7:  # Fractional hours to normal hours and minutes
         hours = int(user_input_time)
         minutes = int((user_input_time - hours) * 60)
         return (hours, minutes), "hours and minutes"
-    elif conversion_choice == 8: # Normal hours and minutes to fractional hours
-        fractional_hours = user_input_time / 60
+    elif conversion_choice == 8:  # Normal hours and minutes to fractional hours
+        hours = getUserInputTime("Enter the number of hours: ")
+        minutes = getUserInputTime("Enter the number of minutes: ")
+        fractional_hours = hours + (minutes / 60)
         return fractional_hours, "fractional hours"
     else:
         return None, None
@@ -88,8 +90,11 @@ def main():
         if user_choice == 9:
             print("\nThank you for using the Time Converter!")
             sys.exit()
-        user_input_time = getUserInputTime()
-        converted_result = convertUserChoice(user_choice, user_input_time)
+        if user_choice == 8:  # Special case for fractional hours
+            converted_result = convertUserChoice(user_choice, None)
+        else:
+            user_input_time = getUserInputTime()
+            converted_result = convertUserChoice(user_choice, user_input_time)
         displayResult(converted_result, user_choice)
 
 
