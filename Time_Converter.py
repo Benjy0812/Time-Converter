@@ -1,7 +1,6 @@
 import sys
 
-def menu():  
-    # Displays the list of things you can convert.
+def menu():
     print(
         """
 Welcome to the Time Converter
@@ -48,23 +47,23 @@ def getUserInputTime():
 
 
 def convertUserChoice(conversion_choice, user_input_time):
-    if conversion_choice == 1:
+    if conversion_choice == 1: # Seconds to minutes
         return user_input_time / 60, "minutes"
-    elif conversion_choice == 2:
+    elif conversion_choice == 2: # Minutes to seconds
         return user_input_time * 60, "seconds"
-    elif conversion_choice == 3:
+    elif conversion_choice == 3: # Seconds to hours
         return user_input_time / 3600, "hours"
-    elif conversion_choice == 4:
+    elif conversion_choice == 4: # Hours to seconds
         return user_input_time * 3600, "seconds"
-    elif conversion_choice == 5:
+    elif conversion_choice == 5: # Days to hours
         return user_input_time * 24, "hours"
-    elif conversion_choice == 6:
+    elif conversion_choice == 6: # Hours to days
         return user_input_time / 24, "days"
-    elif conversion_choice == 7:
+    elif conversion_choice == 7: # Fractional hours to normal hours and minutes
         hours = int(user_input_time)
         minutes = int((user_input_time - hours) * 60)
         return (hours, minutes), "hours and minutes"
-    elif conversion_choice == 8:
+    elif conversion_choice == 8: # Normal hours and minutes to fractional hours
         fractional_hours = user_input_time / 60
         return fractional_hours, "fractional hours"
     else:
