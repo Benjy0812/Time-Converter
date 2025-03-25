@@ -38,9 +38,13 @@ def getUserInputTime(prompt="Enter the time to convert: "):
             if time < 0:
                 print("Warning: Negative number entered. Please ensure it's correct.")
             elif time > 1e9:
-                print("Warning: This is a very large number. Please ensure it's correct.")
+                print(
+                    "Warning: This is a very large number. Please ensure it's correct."
+                )
             elif time < 1e-10:
-                print("Warning: This is a very small number. Please ensure it's correct.")
+                print(
+                    "Warning: This is a very small number. Please ensure it's correct."
+                )
             return time
         except ValueError:
             print("Invalid input! Please enter a valid number.")
@@ -90,7 +94,7 @@ def main():
         if user_choice == 9:
             print("\nThank you for using the Time Converter!")
             sys.exit()
-        if user_choice == 8:  # Special case for fractional hours
+        if user_choice == 8:
             converted_result = convertUserChoice(user_choice, None)
         else:
             user_input_time = getUserInputTime()
